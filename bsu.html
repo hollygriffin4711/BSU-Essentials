@@ -71,6 +71,14 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        .info-box {
+            background: #e0e7ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
         footer {
             text-align: center;
             padding: 1rem;
@@ -96,6 +104,11 @@
         <p><strong>Time:</strong> 6 PM onwards</p>
         <p><strong>Location:</strong> Falmer Hard Courts</p>
         <p>Join us for an exciting charity netball match organized by Brighton Students' Union and supported by Fareshare Charity, SportBrighton, and the Brighton University Netball Team. All proceeds go to supporting Brighton University students who may not ask for help but could be struggling.</p>
+        <div class="info-box">
+            <p><strong>Ticket Price: £5</strong> (All proceeds go to BSU Essentials)</p>
+            <p>Fancy dress encouraged! Prizes for the best costumes!</p>
+            <p>Don't forget to bring non-perishable donations: pasta, rice, canned goods, toiletries, and more.</p>
+        </div>
     </section>
     <section id="register">
         <h2>Register for the Event</h2>
@@ -107,12 +120,7 @@
             <input type="email" id="email" name="email" required>
 
             <label for="tickets">Number of Tickets:</label>
-            <select id="tickets" name="tickets">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+            <input type="number" id="tickets" name="tickets" min="1" required>
 
             <button type="button" onclick="register()">Register</button>
         </form>
@@ -144,7 +152,8 @@
             const tickets = document.getElementById('tickets').value;
 
             if (name && email && tickets) {
-                document.getElementById('registerMessage').innerText = `Thank you, ${name}, for registering! We have sent a confirmation to ${email}.`;
+                const totalCost = tickets * 5;
+                document.getElementById('registerMessage').innerText = `Thank you, ${name}, for registering! We have sent a confirmation to ${email}. Your total ticket cost is £${totalCost}, all proceeds supporting BSU Essentials.`;
                 document.getElementById('registerForm').reset();
             } else {
                 alert('Please fill in all fields to register.');
@@ -164,3 +173,5 @@
     </script>
 </body>
 </html>
+
+   
