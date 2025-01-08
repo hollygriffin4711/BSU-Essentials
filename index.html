@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brighton Charity Match</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #6a1b9a;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #4a148c;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #6a1b9a;
+        }
+        button {
+            background: #6a1b9a;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #4a148c;
+        }
+        .form-container {
+            margin: 1.5rem 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #4a148c;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Brighton Charity Match: Scoring for Change</h1>
+        <p>Support Brighton Students and Make a Difference!</p>
+    </header>
+    <nav>
+        <a href="#event-details">Event Details</a>
+        <a href="#register">Register</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="event-details">
+        <h2>Event Details</h2>
+        <p><strong>Date:</strong> 12th June 2025</p>
+        <p><strong>Time:</strong> 6 PM onwards</p>
+        <p><strong>Location:</strong> Falmer Hard Courts</p>
+        <p>Join us for an exciting charity netball match to support Brighton students with food banks and mental health initiatives.</p>
+    </section>
+    <section id="register">
+        <h2>Register for the Event</h2>
+        <form id="registerForm" class="form-container">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tickets">Number of Tickets:</label>
+            <select id="tickets" name="tickets">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <button type="button" onclick="register()">Register</button>
+        </form>
+        <p id="registerMessage" style="color: green;"></p>
+    </section>
+    <section id="donate">
+        <h2>Donate</h2>
+        <p>Your donations help provide food, mental health support, and essential items for students in need.</p>
+        <form id="donateForm" class="form-container">
+            <label for="amount">Donation Amount (£):</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <button type="button" onclick="donate()">Donate Now</button>
+        </form>
+        <p id="donateMessage" style="color: green;"></p>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us at <strong>info@brightoncharitymatch.com</strong>.</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Brighton Charity Match. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function register() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const tickets = document.getElementById('tickets').value;
+
+            if (name && email && tickets) {
+                document.getElementById('registerMessage').innerText = `Thank you, ${name}, for registering! We have sent a confirmation to ${email}.`;
+                document.getElementById('registerForm').reset();
+            } else {
+                alert('Please fill in all fields to register.');
+            }
+        }
+
+        function donate() {
+            const amount = document.getElementById('amount').value;
+
+            if (amount && amount > 0) {
+                document.getElementById('donateMessage').innerText = `Thank you for your generous donation of £${amount}!`;
+                document.getElementById('donateForm').reset();
+            } else {
+                alert('Please enter a valid donation amount.');
+            }
+        }
+    </script>
+</body>
+</html>
